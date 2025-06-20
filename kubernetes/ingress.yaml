@@ -31,17 +31,13 @@ metadata:
     
     # CORS configuration
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://kubetyper.your-domain.com"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
     nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, OPTIONS"
     nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
     nginx.ingress.kubernetes.io/cors-expose-headers: "Content-Length,Content-Range"
 spec:
-  tls:
-    - hosts:
-        - kubetyper.your-domain.com
-      secretName: kubetyper-tls
   rules:
-    - host: kubetyper.your-domain.com
+    - host: kubetyper.local  # Temporary host for testing
       http:
         paths:
           # Socket.IO WebSocket endpoint
