@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubetyper-backend-service
+  namespace: kubetyper-production
+  labels:
+    app: kubetyper-backend
+    component: api
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: kubetyper-backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubetyper-backend-headless
+  namespace: kubetyper-production
+  labels:
+    app: kubetyper-backend
+    component: api
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: kubetyper-backend 

@@ -1,0 +1,59 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+
+
+# 1. Dependency Directories
+# These contain thousands of files from third-party libraries and are not part of our source code.
+# Including them would consume the entire context window with irrelevant information.
+node_modules/
+
+# 2. Build & Compilation Output
+# These directories contain the compiled, minified, or bundled output of our applications.
+# The AI should work with the source code, not the generated artifacts.
+/dist
+/build
+.svelte-kit/
+.vite/
+
+
+# 4. Infrastructure as Code (IaC) State & Logs
+# Terraform state files can contain sensitive infrastructure details. The .terraform
+# directory contains provider plugins and is not needed for context.
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+# 5. Logs & Reports
+# Log files and test reports are runtime artifacts and not relevant for code generation.
+logs/
+*.log
+npm-debug.log*
+yarn-error.log
+coverage/
+.nyc_output/
+
+# 6. Version Control & OS/IDE Files
+# These are metadata files for Git, operating systems, and specific IDEs. They are
+# not relevant to the project's source code.
+.git/
+.DS_Store
+.vscode/
+.idea/
+
+# 7. Package Manager Lock Files
+# While crucial for dependency management, these files are very large and don't
+# provide useful context for generating new features or refactoring code.
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 8. Kubernetes Manifests (Optional - uncomment if needed)
+# By default, we ignore the Kubernetes directory. For deployment-related tasks,
+# you should explicitly add this directory or specific files to your prompt
+# using the `@kubernetes/` command in the chat.
+
+# kubernetes/

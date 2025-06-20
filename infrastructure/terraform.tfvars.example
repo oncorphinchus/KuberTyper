@@ -1,0 +1,33 @@
+# DigitalOcean Configuration
+# Get your API token from: https://cloud.digitalocean.com/account/api/tokens
+do_token = "dop_v1_your_digitalocean_api_token_here"
+
+# Project Configuration
+project_name = "kubetyper"
+environment = "production"
+
+# Infrastructure Configuration
+region = "nyc3"  # Available regions: nyc1, nyc3, ams3, sfo3, sgp1, lon1, fra1, tor1, blr1, syd1
+
+# Kubernetes Cluster Configuration
+cluster_version = "1.29.1-do.0"  # Check available versions: doctl kubernetes options versions
+node_pool_size = "s-2vcpu-2gb"   # Available sizes: doctl compute size list
+node_count = 3
+auto_scale = true
+min_nodes = 2
+max_nodes = 6
+
+# Database Configuration
+db_engine = "pg"
+db_version = "15"
+db_size = "db-s-1vcpu-1gb"  # Available sizes: doctl databases options sizes
+db_node_count = 1
+db_name = "kubetyper"
+db_user = "kubetyper"
+
+# SSH Key Configuration (for cluster access)
+# Create SSH key in DigitalOcean: https://cloud.digitalocean.com/account/security
+ssh_key_name = "default"
+
+# Resource Tags
+tags = ["kubetyper", "managed-by-terraform", "production"] 

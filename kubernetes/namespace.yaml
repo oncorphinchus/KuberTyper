@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kubetyper-production
+  labels:
+    name: kubetyper-production
+    environment: production
+    app: kubetyper
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kubetyper-staging
+  labels:
+    name: kubetyper-staging
+    environment: staging
+    app: kubetyper 
